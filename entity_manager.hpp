@@ -7,12 +7,11 @@
 class EntityManager {
 private:
 	std::queue<entity> ID;
-	properties _properties[MAX_ENTITIES];
+	std::array<Signature, MAX_ENTITIES> signatures;
 public:
 	EntityManager() {
 		for (entity e = 0; e < MAX_ENTITIES; e++)
 			ID.push(e);
-		memset(_properties, 0, sizeof(_properties));
 	}
 	entity createEntity() {
 		assert(!ID.empty() && "Entity count reached maximum");
@@ -21,14 +20,14 @@ public:
 	}
 	void destroyEntity(entity e) {
 		assert(e < MAX_ENTITIES && "EntityManager::destroyEntity(): out of range");
-		_properties[e] = 0;
+		signatures[e] = 0;
 		ID.push(e);
 	}
-	void setProperties(entity e, properties p) {
-		_properties[e] = p;
+	void setSignature(entity e, Signature signature) {
+		signatures[e] = signature;
 	}
-	properties getProperties(entity e) {
-		assert(e < MAX_ENTITIES && "EntityManager::getProperties(): out of range");
-		return _properties[e];
+	Signature getSignature(entity e) {
+		assert(e < MAX_ENTITIES && "EntityManager::getSignature(): out of range");
+		return signatures[e];
 	}
 };

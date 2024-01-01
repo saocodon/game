@@ -17,6 +17,7 @@ void ObjectSystem::init(const char* img, SDL_Renderer* ren, int x, int y) {
 void ObjectSystem::update() {
 	for (auto const& e : entities) {
 		// TODO: returned nullptr
+		// does size(entities) = 0?
 		auto& transform = game_manager.getComponent<Transform>(e);
 		auto& sprites = game_manager.getComponent<Sprites>(e);
 		transform.x++; transform.y++;

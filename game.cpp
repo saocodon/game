@@ -14,16 +14,18 @@ void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 		if (!renderer) return;
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 		isRunning = true;
+
 		// Do work here
 		game_manager.init();
 		game_manager.registerComponent<Transform>();
 		game_manager.registerComponent<Sprites>();
 		std::shared_ptr<ObjectSystem> system = game_manager.registerSystem<ObjectSystem>();
-		properties p;
+		Signature signature;
 		// include "transform", "sprites" components into the GameObject system
-		p |= (1 << (game_manager.getComponentType<Transform>()));
-		p |= (1 << (game_manager.getComponentType<Sprites>()));
-		game_manager.setSystemProperties<ObjectSystem>(p);
+		signature.set(game_manager.getComponentType<Transform>());
+		signature.set(game_manager.getComponentType<Sprites>());
+		game_manager.setSystemSignature<ObjectSystem>(signature);
+		// get ID for player
 		player = game_manager.createEntity();
 		// quickly set up a rectangle on screen
 		SDL_Rect dstR; dstR.w = dstR.h = 64; dstR.x = dstR.y = 50;

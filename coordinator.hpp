@@ -32,11 +32,11 @@ public:
 	template <typename T>
 	void addComponent(entity e, T component) {
 		componentManager->addComponent(e, component);
-		auto _props = entityManager->getProperties(e);
+		auto signature = entityManager->getSignature(e);
 		// set property: componentManager->getComponentType() of type T
-		_props |= (1 << (componentManager->getComponentType<T>()));
-		entityManager->setProperties(e, _props);
-		systemManager->entityPropertiesChanged(e, _props);
+		signature.set(componentManager->getComponentType<T>(), true);
+		entityManager->setSignature(e, signature);
+		systemManager->entitySignatureChanged(e, signature);
 	}
 	template <typename T>
 	T& getComponent(entity e) {
@@ -54,7 +54,7 @@ public:
 		return systemManager->registerSystem<T>();
 	}
 	template <typename T>
-	void setSystemProperties(properties p) {
-		systemManager->setProperties<T>(p);
+	void setSystemSignature(Signature signature) {
+		systemManager->setSignature<T>(signature);
 	}
 };
