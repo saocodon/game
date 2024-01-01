@@ -1,7 +1,14 @@
 #pragma once
 
-#include <SDL.h>
-#include <stdio.h>
+#include <memory>
+// entity has already been included in 'coordinator.hpp'
+// Coordinator has already been included in 'object_system'
+// SDL has already been included in 'object_system'
+#include "object_system.hpp"
+#include "texture_manager.hpp"
+
+// global variable to use 'extern'
+Coordinator game_manager;
 
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
@@ -22,4 +29,6 @@ private:
 	bool isRunning;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
+	std::shared_ptr<ObjectSystem> objectSystem;
+	entity player;
 };

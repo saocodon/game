@@ -21,10 +21,13 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="texture_manager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="system_manager.hpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="game_object.cpp">
+    <ClCompile Include="object_system.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="object_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +38,19 @@
     <ClInclude Include="texture_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game_object.hpp">
+    <ClInclude Include="entity_manager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="component_array.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="component_manager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="coordinator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="const.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

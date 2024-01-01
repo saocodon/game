@@ -133,13 +133,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="game_object.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="texture_manager.cpp" />
+    <ClCompile Include="object_system.cpp" />
+    <ClCompile Include="object_system.hpp" />
+    <ClCompile Include="system_manager.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="component_array.hpp" />
+    <ClInclude Include="component_manager.hpp" />
+    <ClInclude Include="const.hpp" />
+    <ClInclude Include="coordinator.hpp" />
     <ClInclude Include="game.hpp" />
-    <ClInclude Include="game_object.hpp" />
+    <ClInclude Include="entity_manager.hpp" />
     <ClInclude Include="texture_manager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
