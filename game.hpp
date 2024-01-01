@@ -7,8 +7,7 @@
 #include "object_system.hpp"
 #include "texture_manager.hpp"
 
-// global variable to use 'extern'
-Coordinator game_manager;
+extern Coordinator game_manager;
 
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;

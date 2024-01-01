@@ -1,6 +1,8 @@
 #include "game.hpp"
 // object_system has already been included in 'game.hpp'
 
+Coordinator game_manager;
+
 Game::Game() {}
 Game::~Game() {}
 
