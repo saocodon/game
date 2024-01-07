@@ -14,8 +14,8 @@ const int frameDelay = 1000 / FPS;
 
 class Game {
 public:
-	Game();
-	~Game();
+	Game() {};
+	~Game() {}
 
 	void init(const char* title, int x, int y, int w, int h, int flags);
 	void handleEvents();

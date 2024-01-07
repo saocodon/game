@@ -36,6 +36,7 @@ public:
 		// set property: componentManager->getComponentType() of type T
 		signature.set(componentManager->getComponentType<T>(), true);
 		entityManager->setSignature(e, signature);
+		// called when add a component
 		systemManager->entitySignatureChanged(e, signature);
 	}
 	template <typename T>

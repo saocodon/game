@@ -4,6 +4,7 @@
 #include <set>
 #include <unordered_map>
 #include <memory>
+#include <iostream>
 
 class System {
 public:
@@ -43,11 +44,13 @@ public:
 			auto const& type = pair.first;
 			auto const& system = pair.second;
 			auto const& systemSignature = signatures[type];
-			// checking if entity signature has the same bits turned on as the system
-			if ((signature & systemSignature) == systemSignature)
+			// checking if system manages entity (systemSignature > signature)
+			if ((signature & systemSignature) == signature) {
 				system->entities.insert(e);
-			else
+			}
+			else {
 				system->entities.erase(e);
+			}
 		}
 	}
 };
