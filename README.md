@@ -10,3 +10,5 @@
 4. Find **Linker** > **Input**. Add your **\*.lib** files there.
     ![](docs/2.png)
 5. Copy the SDL_image DLL file into your executable folder.
+# References
+This code was inspired by this [playlist](https://www.youtube.com/playlist?list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx) and this [blog](https://austinmorlan.com/posts/entity_component_system/).
