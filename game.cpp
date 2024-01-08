@@ -3,6 +3,8 @@
 // object_system has already been included in 'game.hpp'
 
 Coordinator game_manager;
+SDL_Event Game::ev;
+SDL_Renderer* Game::renderer = nullptr;
 
 void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
@@ -29,8 +31,8 @@ void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 		// quickly set up a rectangle on screen
 		SDL_Rect dstR; dstR.w = dstR.h = 64; dstR.x = dstR.y = 50;
 		SDL_Texture* t = TextureManager::LoadTexture("assets/player.png", renderer);
-		game_manager.addComponent(player, Sprites{t});
-		game_manager.addComponent(player, Transform{50, 50});
+		game_manager.addComponent(player, Sprites{ t, 64, 64 });
+		game_manager.addComponent(player, Transform{ Vec(50, 50), Vec(0, 0) });
 	}
 	else {
 		isRunning = false;
@@ -38,14 +40,11 @@ void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 }
 
 void Game::handleEvents() {
-	SDL_Event ev;
 	SDL_PollEvent(&ev);
 	switch (ev.type) {
-	case SDL_QUIT:
-		isRunning = false;
-		break;
-	default:
-		break;
+		case SDL_QUIT:
+			isRunning = false;
+			break;
 	}
 }
 
@@ -56,12 +55,7 @@ void Game::update() {
 void Game::render() {
 	SDL_RenderClear(renderer);
 	// this is where we would add stuff to render
-	for (auto const& e : objectSystem->entities) {
-		auto& sprites = game_manager.getComponent<Sprites>(e);
-		auto& transform = game_manager.getComponent<Transform>(e);
-		SDL_Rect destR = { transform.x, transform.y, 64, 64 };
-		SDL_RenderCopy(renderer, sprites.texture, NULL, &destR);
-	}
+	objectSystem->render();
 	SDL_RenderPresent(renderer);
 }
 

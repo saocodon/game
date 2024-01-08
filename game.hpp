@@ -4,7 +4,7 @@
 // entity has already been included in 'coordinator.hpp'
 // Coordinator has already been included in 'object_system'
 // SDL has already been included in 'object_system'
-#include "object_system.hpp"
+#include "ecs/object_system.hpp"
 #include "texture_manager.hpp"
 
 extern Coordinator game_manager;
@@ -14,6 +14,9 @@ const int frameDelay = 1000 / FPS;
 
 class Game {
 public:
+	static SDL_Event ev;
+	static SDL_Renderer* renderer;
+
 	Game() {};
 	~Game() {}
 
@@ -27,7 +30,6 @@ public:
 private:
 	bool isRunning;
 	SDL_Window* window;
-	SDL_Renderer* renderer;
 	std::shared_ptr<ObjectSystem> objectSystem;
 	entity player;
 };
