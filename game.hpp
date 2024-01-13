@@ -9,15 +9,15 @@
 
 extern Coordinator game_manager;
 
-const int FPS = 60;
-const int frameDelay = 1000 / FPS;
-
 class Game {
 public:
 	static SDL_Event ev;
 	static SDL_Renderer* renderer;
+	static bool keyStates[KEY_STATES];
 
-	Game() {};
+	Game() {
+		memset(keyStates, 0, sizeof keyStates);
+	}
 	~Game() {}
 
 	void init(const char* title, int x, int y, int w, int h, int flags);
@@ -27,6 +27,7 @@ public:
 	void clean();
 	
 	bool running() { return isRunning; }
+
 private:
 	bool isRunning;
 	SDL_Window* window;
