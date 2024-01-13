@@ -11,7 +11,7 @@ public:
 		assert(componentTypes.find(typeName) == componentTypes.end() && "Registering component type more than once.");
 		componentTypes.insert({ typeName, nextComponentType });
 		// create a ComponentArray shared pointer & add it to the component arrays map
-		componentArrays.insert({ typeName, std::make_shared < ComponentArray<T> >() });
+		componentArrays.insert({ typeName, std::make_shared < ComponentArray<T>>() });
 		++nextComponentType;
 	}
 	template<typename T>

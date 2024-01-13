@@ -24,7 +24,7 @@ public:
 		assert(entityToIndex.find(e) == entityToIndex.end() && "Component of entity existed");
 		size_t newIndex = arraySize;
 		entityToIndex[e] = newIndex;
-		componentArray[newIndex] = component; // TODO: fix
+		componentArray[newIndex] = component;
 		++arraySize;
 	}
 	void removeData(entity e) {
@@ -33,7 +33,7 @@ public:
 		size_t indexOfRemovedElement = entityToIndex[e];
 		componentArray[indexOfRemovedElement] = componentArray[arraySize - 1];
 		// update map
-		entityToIndex[componentArray.size() - 1] = indexOfRemovedElement;
+		entityToIndex[arraySize - 1] = indexOfRemovedElement; // TODO?
 		entityToIndex.erase(e);
 		--arraySize;
 	}
