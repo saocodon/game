@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../const.hpp"
+#include "const.hpp"
 #include <set>
 #include <unordered_map>
 #include <memory>
@@ -44,8 +44,8 @@ public:
 			auto const& type = pair.first;
 			auto const& system = pair.second;
 			auto const& systemSignature = signatures[type];
-			// checking if system manages entity (systemSignature > signature)
-			if ((signature & systemSignature) == signature) {
+			// checking if system manages entity (systemSignature < signature)
+			if ((signature & systemSignature) == systemSignature) {
 				system->entities.insert(e);
 			}
 			else {

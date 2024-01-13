@@ -132,21 +132,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ecs\object_system.cpp" />
-    <ClCompile Include="game.cpp" />
+    <ClCompile Include="core\game.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="const.hpp" />
-    <ClInclude Include="ecs\component_array.hpp" />
-    <ClInclude Include="ecs\component_manager.hpp" />
-    <ClInclude Include="ecs\coordinator.hpp" />
-    <ClInclude Include="ecs\entity_manager.hpp" />
-    <ClInclude Include="ecs\object_system.hpp" />
-    <ClInclude Include="ecs\system_manager.hpp" />
-    <ClInclude Include="game.hpp" />
-    <ClInclude Include="texture_manager.hpp" />
-    <ClInclude Include="vec.hpp" />
+    <ClInclude Include="core\components.hpp" />
+    <ClInclude Include="core\component_array.hpp" />
+    <ClInclude Include="core\component_manager.hpp" />
+    <ClInclude Include="core\const.hpp" />
+    <ClInclude Include="core\coordinator.hpp" />
+    <ClInclude Include="core\entity_manager.hpp" />
+    <ClInclude Include="core\game.hpp" />
+    <ClInclude Include="core\system_manager.hpp" />
+    <ClInclude Include="core\texture_manager.hpp" />
+    <ClInclude Include="core\vec.hpp" />
+    <ClInclude Include="sys\animation_system.hpp" />
+    <ClInclude Include="sys\movement_system.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

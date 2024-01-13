@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../const.hpp"
+#include "const.hpp"
 #include <array>
 #include <unordered_map>
 #include <assert.h>
