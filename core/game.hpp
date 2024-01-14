@@ -7,11 +7,14 @@
 #include "../sys/movement_system.hpp"
 #include "../sys/animation_system.hpp"
 #include "texture_manager.hpp"
+#include "keyboard_manager.hpp"
 
 extern Coordinator game_manager;
 
 class Game {
 public:
+	PlayingKeyboardManager keyboard_manager;
+
 	Game() {
 		currentGameState = PLAYING;
 	}

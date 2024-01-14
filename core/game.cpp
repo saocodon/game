@@ -38,7 +38,7 @@ void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 			SDL_Rect{ 290, 0, 108, 169 },
 			SDL_Rect{ 404, 0, 96, 175 }
 		};
-		game_manager.addComponent(player, SpriteComponent{ t, animRects, 0, 100, true, SDL_FLIP_NONE });
+		game_manager.addComponent(player, SpriteComponent{ t, animRects, 0, 130, true, SDL_FLIP_NONE });
 		game_manager.addComponent(player, TransformComponent{ Vec(50, 50), Vec(0, 0) });
 	}
 	else {
@@ -58,8 +58,8 @@ void Game::handleEvents() {
 void Game::update() {
 	switch (currentGameState) {
 	case PLAYING:
-		movementSystem->update(ev);
-		animationSystem->update();
+		movementSystem->update(ev, &keyboard_manager);
+		animationSystem->update(&keyboard_manager);
 		break;
 	}
 }

@@ -21,6 +21,9 @@
     <ClCompile Include="core\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\keyboard_manager.hpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\component_array.hpp">

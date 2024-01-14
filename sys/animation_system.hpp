@@ -2,13 +2,14 @@
 
 #include "coordinator.hpp"
 #include "components.hpp"
+#include "../core/keyboard_manager.hpp"
 #include <SDL.h>
 
 extern Coordinator game_manager;
 
 class AnimationSystem : public System {
 public:
-	void update() {
+	void update(PlayingKeyboardManager* kb) {
 		for (auto const& e : entities) {
 			auto& sprites = game_manager.getComponent<SpriteComponent>(e);
 			auto& transform = game_manager.getComponent<TransformComponent>(e);
@@ -20,8 +21,9 @@ public:
 				sprites.frameIndex = 0;
 			}
 
-			if (sprites.animated)
+			if (sprites.animated) {
 				sprites.frameIndex = SDL_GetTicks() / sprites.animSpeed % sprites.animRects.size();
+			}
 
 			if (transform.velocity.x < 0)
 				sprites.flips = SDL_FLIP_HORIZONTAL;
