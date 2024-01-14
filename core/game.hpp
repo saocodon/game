@@ -12,7 +12,9 @@ extern Coordinator game_manager;
 
 class Game {
 public:
-	Game() {}
+	Game() {
+		currentGameState = PLAYING;
+	}
 	~Game() {}
 
 	void init(const char* title, int x, int y, int w, int h, int flags);
@@ -24,6 +26,9 @@ public:
 	bool running() { return isRunning; }
 
 private:
+	char currentGameState;
+	enum { PLAYING, DIALOGUE, MENU };
+
 	bool isRunning;
 	SDL_Window* window;
 	SDL_Event ev;

@@ -8,6 +8,7 @@
 
 const entity MAX_ENTITIES = 5000;
 const componentType MAX_COMPONENTS = 32;
+const int MAX_PLAYER_KEY_STATES = 4;
 
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;

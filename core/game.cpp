@@ -56,15 +56,23 @@ void Game::handleEvents() {
 }
 
 void Game::update() {
-	movementSystem->update(ev);
-	animationSystem->update();
+	switch (currentGameState) {
+	case PLAYING:
+		movementSystem->update(ev);
+		animationSystem->update();
+		break;
+	}
 }
 
 void Game::render() {
 	SDL_RenderClear(renderer);
 	// this is where we would add stuff to render
-	animationSystem->render(renderer);
-	SDL_RenderPresent(renderer);
+	switch (currentGameState) {
+	case PLAYING:
+		animationSystem->render(renderer);
+		SDL_RenderPresent(renderer);
+		break;
+	}	
 }
 
 void Game::clean() {

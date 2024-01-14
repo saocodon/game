@@ -25,8 +25,10 @@ public:
 
 			if (transform.velocity.x < 0)
 				sprites.flips = SDL_FLIP_HORIZONTAL;
-			else
+			if (transform.velocity.x > 0)
 				sprites.flips = SDL_FLIP_NONE;
+			// if (transform.velocity.y < 0)
+			// if (transform.velocity.y > 0) // TODO
 		}
 	}
 	void render(SDL_Renderer* ren) {
