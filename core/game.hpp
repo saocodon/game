@@ -6,17 +6,15 @@
 // SDL has already been included in 'object_system'
 #include "../sys/movement_system.hpp"
 #include "../sys/animation_system.hpp"
+#include "../sys/keyboard_system.hpp"
 #include "texture_manager.hpp"
-#include "keyboard_manager.hpp"
-
-extern Coordinator game_manager;
 
 class Game {
-public:
-	PlayingKeyboardManager keyboard_manager;
 
+public:
 	Game() {
 		currentGameState = PLAYING;
+		memset(playingKeys, 0, sizeof(playingKeys));
 	}
 	~Game() {}
 
@@ -29,14 +27,12 @@ public:
 	bool running() { return isRunning; }
 
 private:
-	char currentGameState;
-	enum { PLAYING, DIALOGUE, MENU };
-
 	bool isRunning;
 	SDL_Window* window;
 	SDL_Event ev;
 	SDL_Renderer* renderer;
 	std::shared_ptr<MovementSystem> movementSystem;
 	std::shared_ptr<AnimationSystem> animationSystem;
+	std::shared_ptr<KeyboardSystem> keyboardSystem;
 	entity player;
 };

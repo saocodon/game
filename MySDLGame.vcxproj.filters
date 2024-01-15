@@ -21,7 +21,7 @@
     <ClCompile Include="core\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="core\keyboard_manager.hpp">
+    <ClCompile Include="sys\keyboard_system.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sys\movement_system.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\state.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

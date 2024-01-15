@@ -18,8 +18,9 @@ void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 		game_manager.registerComponent<SpriteComponent>();
 		movementSystem = game_manager.registerSystem<MovementSystem>();
 		animationSystem = game_manager.registerSystem<AnimationSystem>();
+		keyboardSystem = game_manager.registerSystem<KeyboardSystem>();
 		Signature signature;
-		// include comopnents components into systems
+		// include components into systems
 		signature.set(game_manager.getComponentType<TransformComponent>());
 		signature.set(game_manager.getComponentType<SpriteComponent>());
 		game_manager.setSystemSignature<AnimationSystem>(signature);
@@ -56,12 +57,9 @@ void Game::handleEvents() {
 }
 
 void Game::update() {
-	switch (currentGameState) {
-	case PLAYING:
-		movementSystem->update(ev, &keyboard_manager);
-		animationSystem->update(&keyboard_manager);
-		break;
-	}
+	animationSystem->update();
+	keyboardSystem->update(ev);
+	movementSystem->update(ev);
 }
 
 void Game::render() {
@@ -72,7 +70,7 @@ void Game::render() {
 		animationSystem->render(renderer);
 		SDL_RenderPresent(renderer);
 		break;
-	}	
+	}
 }
 
 void Game::clean() {

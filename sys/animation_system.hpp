@@ -1,15 +1,18 @@
 #pragma once
 
-#include "coordinator.hpp"
-#include "components.hpp"
-#include "../core/keyboard_manager.hpp"
+// system_manager has already been included in 'coordinator.hpp'
+#include "../core/components.hpp"
+#include "../core/coordinator.hpp"
+#include "keyboard_system.hpp"
+#include "../core/state.hpp"
 #include <SDL.h>
 
 extern Coordinator game_manager;
 
 class AnimationSystem : public System {
+
 public:
-	void update(PlayingKeyboardManager* kb) {
+	void update() {
 		for (auto const& e : entities) {
 			auto& sprites = game_manager.getComponent<SpriteComponent>(e);
 			auto& transform = game_manager.getComponent<TransformComponent>(e);

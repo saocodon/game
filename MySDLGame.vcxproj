@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\vclib\SDL2_image-2.8.1\include;C:\vclib\SDL2-2.28.5\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\vclib\SDL2_image-2.8.1\include;C:\vclib\SDL2-2.28.5\include;\core;$(IncludePath)</IncludePath>
     <LibraryPath>C:\vclib\SDL2_image-2.8.1\lib\x64;C:\vclib\SDL2-2.28.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -133,7 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\game.cpp" />
-    <ClCompile Include="core\keyboard_manager.hpp" />
+    <ClCompile Include="sys\keyboard_system.hpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +144,7 @@
     <ClInclude Include="core\coordinator.hpp" />
     <ClInclude Include="core\entity_manager.hpp" />
     <ClInclude Include="core\game.hpp" />
+    <ClInclude Include="core\state.hpp" />
     <ClInclude Include="core\system_manager.hpp" />
     <ClInclude Include="core\texture_manager.hpp" />
     <ClInclude Include="core\vec.hpp" />
