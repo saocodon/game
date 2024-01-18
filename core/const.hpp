@@ -5,7 +5,6 @@
 
 #define entity std::uint32_t
 #define componentType std::uint8_t
-#define gamestate std::uint8_t
 #define Signature std::bitset<MAX_COMPONENTS>
 
 const entity MAX_ENTITIES = 5000;

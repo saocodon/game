@@ -144,7 +144,7 @@
     <ClInclude Include="core\coordinator.hpp" />
     <ClInclude Include="core\entity_manager.hpp" />
     <ClInclude Include="core\game.hpp" />
-    <ClInclude Include="core\state.hpp" />
+    <ClInclude Include="core\state_manager.hpp" />
     <ClInclude Include="core\system_manager.hpp" />
     <ClInclude Include="core\texture_manager.hpp" />
     <ClInclude Include="core\vec.hpp" />

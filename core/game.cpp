@@ -20,6 +20,7 @@ void Game::init(const char* title, int x, int y, int w, int h, int flags) {
 		animationSystem = game_manager.registerSystem<AnimationSystem>();
 		keyboardSystem = game_manager.registerSystem<KeyboardSystem>();
 		Signature signature;
+
 		// include components into systems
 		signature.set(game_manager.getComponentType<TransformComponent>());
 		signature.set(game_manager.getComponentType<SpriteComponent>());
@@ -65,12 +66,8 @@ void Game::update() {
 void Game::render() {
 	SDL_RenderClear(renderer);
 	// this is where we would add stuff to render
-	switch (currentGameState) {
-	case PLAYING:
-		animationSystem->render(renderer);
-		SDL_RenderPresent(renderer);
-		break;
-	}
+	animationSystem->render(renderer);
+	SDL_RenderPresent(renderer);
 }
 
 void Game::clean() {

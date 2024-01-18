@@ -62,7 +62,7 @@
     <ClInclude Include="sys\movement_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\state.hpp">
+    <ClInclude Include="core\state_manager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

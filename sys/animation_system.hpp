@@ -3,8 +3,7 @@
 // system_manager has already been included in 'coordinator.hpp'
 #include "../core/components.hpp"
 #include "../core/coordinator.hpp"
-#include "keyboard_system.hpp"
-#include "../core/state.hpp"
+#include "../core/state_manager.hpp"
 #include <SDL.h>
 
 extern Coordinator game_manager;

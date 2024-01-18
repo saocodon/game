@@ -13,7 +13,6 @@ class Game {
 
 public:
 	Game() {
-		currentGameState = PLAYING;
 		memset(playingKeys, 0, sizeof(playingKeys));
 	}
 	~Game() {}

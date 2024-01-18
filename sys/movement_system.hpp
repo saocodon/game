@@ -5,8 +5,7 @@
 #include "../core/vec.hpp"
 #include "../core/components.hpp"
 #include "../core/const.hpp"
-#include "../core/state.hpp"
-#include "keyboard_system.hpp"
+#include "../core/state_manager.hpp"
 
 extern Coordinator game_manager;
 
@@ -18,7 +17,6 @@ public:
 
 		for (auto const& e : entities) {
 			auto& transform = game_manager.getComponent<TransformComponent>(e);
-			// keyboard handling has been moved to game.cpp
 			if (e == 0) {
 				if (playingKeys[MOVE_UP] && playingKeys[MOVE_DOWN]) transform.velocity.y = 0;
 				else {
